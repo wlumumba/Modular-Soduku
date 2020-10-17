@@ -1,5 +1,8 @@
 #include "solverFunctions.h"
+#include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
+
 
 //Prints grid
 void printSodoku(int grid[N][N])
@@ -79,4 +82,16 @@ bool checkIfPossible(int row, int col, int grid[N][N], int value)
         }
     }
     return true;
+}
+
+//Delay function
+void delay(int milliseconds)
+{
+    long pause;
+    clock_t now,then;
+
+    pause = milliseconds*(CLOCKS_PER_SEC/1000);
+    now = then = clock();
+    while( (now-then) < pause )
+        now = clock();
 }
